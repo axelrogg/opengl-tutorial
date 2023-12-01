@@ -2,6 +2,8 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
+#include "utils.h"
+
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 void process_input(GLFWwindow *window);
 
@@ -28,10 +30,12 @@ int main(void) {
         return -1;
     }
 
+    char *bg_hex_color = "#010104";
+    RGB bg_RGB_color;
     while(!glfwWindowShouldClose(window)) {
         process_input(window);
 
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        glClearColor(bg_RGB_color.R, bg_RGB_color.G, bg_RGB_color.B, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
         glfwSwapBuffers(window);
